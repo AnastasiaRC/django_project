@@ -1,0 +1,42 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "title_category": "Молочные продукты",
+      "description_category": "Всё что делают из молока"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "title_category": "Овощи",
+      "description_category": "Огородные плоды и зелень, употр. в пищу"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "title_category": "Фрукты",
+      "description_category": "Cочные, сладкие, которые растут на деревьях или кустарниках и употребляются в пищу"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "title_category": "Мясные продукты",
+      "description_category": "Изделия из качественных ингредиентов, в котором не менее 60% мяса"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "title_category": "Хлебобyлочные изделия",
+      "description_category": "Пищевые продукты, получаемые методом выпекания из теста"
+    }
+  }
+]
