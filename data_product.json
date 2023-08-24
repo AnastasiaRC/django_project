@@ -1,0 +1,106 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "title_product": "Молоко",
+      "description_product": "Milk",
+      "image": "молоко.png",
+      "category": 1,
+      "price": 1.87,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "title_product": "Говядина",
+      "description_product": "Beef",
+      "image": "говядина.png",
+      "category": 4,
+      "price": 5.49,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "title_product": "Помидор",
+      "description_product": "Tomato",
+      "image": "помидор.png",
+      "category": 2,
+      "price": 3.99,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "title_product": "Огурец",
+      "description_product": "Cucumber",
+      "image": "огурец.png",
+      "category": 2,
+      "price": 1.59,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "title_product": "Яблоко",
+      "description_product": "Аpple",
+      "image": "яблоко.png",
+      "category": 3,
+      "price": 2.49,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "title_product": "Виноград",
+      "description_product": "Grape",
+      "image": "виноград.png",
+      "category": 3,
+      "price": 5.99,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "title_product": "Батон",
+      "description_product": "Baton",
+      "image": "батон.png",
+      "category": 5,
+      "price": 0.95,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "title_product": "Йогурт",
+      "description_product": "Yogurt",
+      "image": "йогурт.png",
+      "category": 1,
+      "price": 1.25,
+      "date_of_creation": "2023-08-18",
+      "data_last_modified": "2023-08-18"
+    }
+  }
+]
