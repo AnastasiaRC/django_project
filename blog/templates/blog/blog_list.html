@@ -1,0 +1,38 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Статьи</h1>
+</div>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+            <a href="{% url 'blog:create' %}"
+               class="btn btn-sm btn-success">Добавить статью</a>
+        </div>
+    </div>
+    <br>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in object_list %}
+        <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal text-center">{{ object}}</h3>
+                </div>
+                <img class="d-block w-60 h-30" src="{{ object.image|mediapath_ }}" />
+                <div class="card-body">
+                    <p class="card-text">{{ object.body|truncatechars:30 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{{ object.get_absolute_url }}"
+                               class="btn btn-sm btn-outline-success">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
