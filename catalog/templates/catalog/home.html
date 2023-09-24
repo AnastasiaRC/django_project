@@ -1,6 +1,12 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags %}
 {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="btn-group">
+        <a href="{% url 'catalog:product_create' %}"
+           class="btn btn-sm btn-success"><h6 class="my-0 font-weight-normal text-center">Добавить продукт</h6></a>
+    </div>
+</div>
 <div class="row">
     {% for object in object_list %}
     <div class="col-4">
@@ -8,15 +14,27 @@
             <div class="card-header">
                 <h3 class="my-0 font-weight-normal text-center">{{ object | title }}</h3>
             </div>
-            <img class="d-block w-60 h-30" src="{{ object.image|mediapath }}" />
+            <img class="d-block w-60 h-30" src="{{ object.image|mediapath }}"/>
             <div class="card-body">
                 <h1 class="card-title pricing-card-title text-center">{{ object.price }} руб</h1>
                 <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                     <li>Категория: {{ object.category }}</li>
                     <li>Описание: {{ object.description_product |slice:":20" }}...</li>
                     <li>Дата создания: {{ object.date_of_creation }}</li>
+                    <li>
+                        {% for version in object.version_set.all %}
+                        {% if version.is_active == True %}
+                        Версия: {{ version.version_name }}
+                        {% else %}
+                        Версия: {{ version.version_name }}
+                        {% endif %}
+                        {% endfor%}
+                    </li>
                 </ul>
-                <button type="button" class="w-100 btn btn-lg btn-success">Купить</button>
+                <button type="button" class="w-100 btn btn-lg btn-success mb-2">Купить</button>
+                <a href="{% url 'catalog:product_detail' object.pk %}"
+                   class="w-100 btn btn-primary btn-lg btn-outline-success" tabindex="-1" role="button"
+                   aria-disabled="true">Ознакомиться</a>
             </div>
         </div>
     </div>
