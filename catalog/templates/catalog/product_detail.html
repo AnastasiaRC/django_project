@@ -21,6 +21,7 @@
                             <li>Описание: {{ object.description_product }}</li>
                             <li>Дата создания: {{ object.date_of_creation }}</li>
                             <li>Цена: {{ object.price }}</li>
+                            <li>Автор: {{ object.author }}</li>
                             <li>
                                 {% for version in object.version_set.all %}
                                 {% if version.is_active == True %}
