@@ -1,8 +1,22 @@
 from django.forms import inlineformset_factory
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views import View
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Version
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, TemplateView
+
+
+class AccessErrorView(TemplateView):
+    template_name = 'catalog/error.html'
+
+
+class AccessСheckMixinView(View):
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('catalog:error')
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ProductListView(ListView):
@@ -16,13 +30,21 @@ class ProductListView(ListView):
         return context_data
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(AccessСheckMixinView, CreateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
 
+    def form_valid(self, form):
+        if form.is_valid():
+            product = form.save()
+            product.author = self.request.user
+            product.save()
 
-class ProductUpdateView(UpdateView):
+        return super().form_valid(form)
+
+
+class ProductUpdateView(AccessСheckMixinView, UpdateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
@@ -52,7 +74,7 @@ class ProductDetailView(DetailView):
     model = Product
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(AccessСheckMixinView, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:home')
 

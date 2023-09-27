@@ -3,9 +3,10 @@ from pytils.translit import slugify
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 from blog.forms import BlogForm
 from blog.models import Blog
+from catalog.views import AccessСheckMixinView
 
 
-class BlogCreateView(CreateView):
+class BlogCreateView(AccessСheckMixinView, CreateView):
     model = Blog
     form_class = BlogForm
     success_url = reverse_lazy('blog:list')
@@ -37,7 +38,7 @@ class BlogDetailView(DetailView):
         return self.object
 
 
-class BlogUpdateView(UpdateView):
+class BlogUpdateView(AccessСheckMixinView, UpdateView):
     model = Blog
     form_class = BlogForm
 
@@ -52,6 +53,6 @@ class BlogUpdateView(UpdateView):
         return reverse("blog:view", kwargs={"slug": self.object.slug})
 
 
-class BlogDeleteView(DeleteView):
+class BlogDeleteView(AccessСheckMixinView, DeleteView):
     model = Blog
     success_url = reverse_lazy('blog:list')
