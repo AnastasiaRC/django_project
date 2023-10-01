@@ -104,4 +104,3 @@ class UserPasswordResetConfirmView(PasswordResetConfirmView):
             recipient_list=[user.email]
         )
         return super().form_valid(form)
-
