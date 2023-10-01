@@ -21,12 +21,12 @@
                     <li>Категория: {{ object.category }}</li>
                     <li>Описание: {{ object.description_product |slice:":20" }}...</li>
                     <li>Дата создания: {{ object.date_of_creation }}</li>
-                    <li>
+                    <li>Версия:
                         {% for version in object.version_set.all %}
                         {% if version.is_active == True %}
-                        Версия: {{ version.version_name }}
+                        {{ version.version_name }}
                         {% else %}
-                        Версия: {{ version.version_name }}
+                        {{ version.version_name }}
                         {% endif %}
                         {% endfor%}
                     </li>

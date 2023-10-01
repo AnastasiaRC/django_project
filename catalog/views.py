@@ -5,6 +5,7 @@ from django.views import View
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Version
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, TemplateView
+from catalog.services import get_categories
 
 
 class AccessErrorView(TemplateView):
@@ -27,6 +28,7 @@ class ProductListView(ListView):
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         context_data['object_list'] = Product.objects.all()
+        context_data['category_list'] = get_categories()
         return context_data
 
 
@@ -40,7 +42,6 @@ class ProductCreateView(AccessСheckMixinView, CreateView):
             product = form.save()
             product.author = self.request.user
             product.save()
-
         return super().form_valid(form)
 
 
